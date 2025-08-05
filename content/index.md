@@ -1,5 +1,7 @@
 ---
 title: Home
+tags:
+    - n
 ---
 
 This is a blank Quartz installation.
