@@ -1,7 +1,7 @@
 ---
 title: Home
 ---
-![Cybersecurity Banner](https://i.imgur.com/0h7oY7R.png)
+![Cybersecurity Banner](https://www.1stformationsblog.co.uk/wp-content/uploads/2021/10/shutterstock_505066678.jpg)
 
 # Momen Ahmed Elbarrawy
 **Cybersecurity Engineer** | Offensive Security & Penetration Testing  
@@ -60,15 +60,6 @@ Tech: PHP, MySQL
 ![Movies Screenshot](https://via.placeholder.com/600x300.png?text=Movies+Website)  
 Searchable movie database with CRUD and authentication.  
 Tech: PHP, MySQL  
-
----
-
-## GitHub Stats & Hack Profiles
-![GitHub Stats](https://github-readme-stats.vercel.app/api?username=xme0&show_icons=true&theme=radical)  
-![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=xme0&layout=compact&theme=radical)  
-
-[![TryHackMe Badge](https://tryhackme-badges.s3.amazonaws.com/xme0.png)](https://tryhackme.com/p/xme0)  
-[![HackTheBox Badge](https://www.hackthebox.com/badge/image/12345)](https://app.hackthebox.com/profile/12345)  
 
 ---
 
