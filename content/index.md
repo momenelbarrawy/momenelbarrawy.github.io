@@ -78,11 +78,8 @@ Tech: PHP, MySQL
 **Phone:** +20 121 240 1195  
 **GitHub:** [github.com/xme0](https://github.com/xme0)  
 **LinkedIn:** [linkedin.com/in/momen-elbarrawy](https://linkedin.com/in/momen-elbarrawy)  
-**TryHackMe:** [tryhackme.com/p/xme0](https://tryhackme.com/p/xme0)  
 
----
 
-_The quieter you become, the more you are able to hear._
 
 
 
