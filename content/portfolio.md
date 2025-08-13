@@ -66,7 +66,7 @@ A searchable movie database with **CRUD** operations and **authentication**.
 **Location:** Giza, Egypt  
 **Email:** [momenelbarrawy@gmail.com](mailto:momenelbarrawy@gmail.com)  
 **Phone:** +20 121 240 1195  
-**GitHub:** [github.com/xme0](https://github.com/xme0)  
+**GitHub:** [github.com/xme0](https://github.com/momenelbarrawy)  
 **LinkedIn:** [linkedin.com/in/momen-elbarrawy](https://linkedin.com/in/momen-elbarrawy)  
 
 
