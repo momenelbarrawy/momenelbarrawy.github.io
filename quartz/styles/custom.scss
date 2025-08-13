@@ -1,3 +1,24 @@
 @use "./base.scss";
 
 // put your custom CSS here!
+
+/* Target the right sidebar in Quartz */
+.right {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 100px); /* Adjust for header/footer space */
+  gap: 1rem;
+}
+
+/* Make TOC scrollable if long */
+.right .toc {
+  flex: 1;
+  overflow-y: auto;
+  padding-right: 0.5rem;
+}
+
+/* Make Graph keep its space */
+.right .graph {
+  flex: 1;
+  min-height: 200px; /* Prevent it from shrinking too small */
+}
