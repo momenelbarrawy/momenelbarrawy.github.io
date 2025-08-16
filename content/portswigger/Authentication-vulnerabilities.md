@@ -23,3 +23,6 @@ tags:
 - 2FA is checked incorrectly or can be avoided.
 - Remember me or reset links are badly designed.
 ---
+# Brute-force attacks
+> Attackers use trial-and-error to guess usernames and passwords using wordlists.
+## Brute-forcing usernames
