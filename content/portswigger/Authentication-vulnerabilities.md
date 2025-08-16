@@ -39,5 +39,6 @@ tags:
   - Status codes
   - Error messages
   - Response times
-(Lab 1)[./Username-enumeration-via-different-responses]
+
+[Lab 1](./Username-enumeration-via-different-responses)
 ---
