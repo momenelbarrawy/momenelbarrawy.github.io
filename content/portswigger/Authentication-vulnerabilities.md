@@ -26,3 +26,16 @@ tags:
 # Brute-force attacks
 > Attackers use trial-and-error to guess usernames and passwords using wordlists.
 ## Brute-forcing usernames
+- Username can be gussed or have a pattern (firstname.lastname@company.com, admin).
+- leak usernames
+
+## Brute-Forcing Passwords
+- Password policies (uppercase, special characters, numbers).
+- weak passwords.
+
+## Username Enumeration
+> Detecting valid usernames based on differences in the site’s behavior.
+- Common signs:
+  - Status codes
+  - Error messages
+  - Response times
