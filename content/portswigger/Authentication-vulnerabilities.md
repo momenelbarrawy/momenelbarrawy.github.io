@@ -12,3 +12,6 @@ tags:
 - Something You **know** : Knowledge factors (password, PIN, secret question).
 - Something You **have** : Physical object (phone,smartcard).
 - Something You **are** : Fingerprint, face, voice.
+## Authentication vs Authorization
+- Authentication : Proving **who you are**.
+- Authorization = Deciding **what you can do**.
