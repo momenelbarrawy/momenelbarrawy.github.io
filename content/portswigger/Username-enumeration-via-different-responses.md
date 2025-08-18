@@ -38,3 +38,6 @@ in this step we need to enumerate username list i got it
 ![a](/portswigger/images4Username%20enumeration%20via%20different%20responsess/4.png)
 3. all status code is 200 . we can try a length , we can see there is only one with different length.
 ![a](/portswigger/images4Username%20enumeration%20via%20different%20responsess/5.png)
+
+the respose :
+![a](/portswigger/images4Username%20enumeration%20via%20different%20responsess/9.png)
