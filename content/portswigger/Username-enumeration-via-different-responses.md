@@ -1,5 +1,5 @@
 ---
-title: Username enumeration via different responsess
+title: Username Enumeration via Different Responses
 draft: false
 tags:
   - PortSwigger
@@ -9,58 +9,64 @@ tags:
 ---
 # Lab Description
 
- This lab is vulnerable to username enumeration and password brute-force attacks. It has an account with a predictable username and password, which can be found in the following wordlists:
+This lab is vulnerable to **username enumeration** and **password brute-force** attacks.  
+It contains an account with a predictable username and password, which can be found in the following wordlists:
 
-  [Candidate usernames](https://portswigger.net/web-security/authentication/auth-lab-usernames)
+- [Candidate usernames](https://portswigger.net/web-security/authentication/auth-lab-usernames)  
+- [Candidate passwords](https://portswigger.net/web-security/authentication/auth-lab-passwords)
 
-  [Candidate passwords](https://portswigger.net/web-security/authentication/auth-lab-passwords)
-
-To solve the lab, enumerate a valid username, brute-force this user's password, then access their account page. 
+**Objective:** Enumerate a valid username, brute-force the password for this user, and then access their account page.
 
 ---
 
 # Steps
 
-## Step 1 (where is the vulnerability)
-try to login as any user
-![a](/portswigger/images4Username%20enumeration%20via%20different%20responsess/1.png)
+## Step 1: Identifying the Vulnerability
+Attempt to log in with any username:  
 
-![a](/portswigger/images4Username%20enumeration%20via%20different%20responsess/2.png)
+![a](/portswigger/images4Username%20enumeration%20via%20different%20responsess/1.png)  
 
-there is the username enumeration vulnerability 
+![a](/portswigger/images4Username%20enumeration%20via%20different%20responsess/2.png)  
 
----
-
-## Step 3 (username enumeration)
-in this step we need to enumerate username list i got it 
-1. take login request to intruder
-![a](/portswigger/images4Username%20enumeration%20via%20different%20responsess/3.png)
+Here, we can see the **username enumeration vulnerability**.  
 
 ---
 
-2. set sniper attack => set username value => set payload from username list => start attack
-![a](/portswigger/images4Username%20enumeration%20via%20different%20responsess/4.png)
+## Step 3: Username Enumeration
+Now, we need to enumerate the username list.  
+
+1. Send the login request to **Intruder**:  
+![a](/portswigger/images4Username%20enumeration%20via%20different%20responsess/3.png)  
 
 ---
 
-3. all status code is 200 . we can try a length , we can see there is only one with different length.
-![a](/portswigger/images4Username%20enumeration%20via%20different%20responsess/5.png)
-
-the respose :
-![a](/portswigger/images4Username%20enumeration%20via%20different%20responsess/9.png)
+2. Configure a **Sniper attack** → Set the username value → Load payloads from the username list → Start the attack:  
+![a](/portswigger/images4Username%20enumeration%20via%20different%20responsess/4.png)  
 
 ---
 
-## Step 4 (password brute-force)
-1. setup burp for the attack
-set sniper attack => set password value => set payload from password list => start attack
-![a](/portswigger/images4Username%20enumeration%20via%20different%20responsess/6.png)
+3. All status codes are **200**. However, if we compare response lengths, we can see only one with a different length:  
+![a](/portswigger/images4Username%20enumeration%20via%20different%20responsess/5.png)  
+
+The response:  
+![a](/portswigger/images4Username%20enumeration%20via%20different%20responsess/9.png)  
 
 ---
 
-2. filter by status code 
-![a](/portswigger/images4Username%20enumeration%20via%20different%20responsess/7.png)
+## Step 4: Password Brute-Force
+1. Set up Burp for the attack:  
+Configure a **Sniper attack** → Set the password value → Load payloads from the password list → Start the attack.  
 
-## Step 5 (login)
-just login with username and password
-![a](/portswigger/images4Username%20enumeration%20via%20different%20responsess/8.png)
+![a](/portswigger/images4Username%20enumeration%20via%20different%20responsess/6.png)  
+
+---
+
+2. Filter results by **status code**:  
+![a](/portswigger/images4Username%20enumeration%20via%20different%20responsess/7.png)  
+
+---
+
+## Step 5: Successful Login
+Finally, log in with the discovered **username and password**:  
+
+![a](/portswigger/images4Username%20enumeration%20via%20different%20responsess/8.png)  
