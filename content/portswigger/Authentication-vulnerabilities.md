@@ -2,9 +2,8 @@
 title: Authentication vulnerabilities
 draft: false
 tags:
-  - web
-  - basic
-  - portswigger
+  - Authentication
+  - PortSwigger
 ---
 # What is Authentication
 > Authentication : Proving **who you are**
