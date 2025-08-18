@@ -61,4 +61,6 @@ set sniper attack => set password value => set payload from password list => sta
 2. filter by status code 
 ![a](/portswigger/images4Username%20enumeration%20via%20different%20responsess/7.png)
 
-##
+## Step 5 (login)
+just login with username and password
+![a](/portswigger/images4Username%20enumeration%20via%20different%20responsess/8.png)
