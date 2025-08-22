@@ -70,3 +70,4 @@ Configure a **Sniper attack** → Set the password value → Load payloads from 
 Finally, log in with the discovered **username and password**:  
 
 ![a](/portswigger/images4Username%20enumeration%20via%20different%20responsess/8.png)  
+
