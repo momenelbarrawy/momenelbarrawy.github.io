@@ -1,9 +1,9 @@
 ---
 title: Information Disclosure
+draft: false
 tags:
   - PortSwigger
   - WebSecurity
-draft: false
 ---
 
 # What is Information Disclosure?
