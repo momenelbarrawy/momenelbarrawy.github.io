@@ -24,3 +24,8 @@ XSS attack is type of injection , in which malicious scripts are injected
 # Stored XSS: HTML context nothing encoded.  
 - try in all `<script>alert(50)</script>` input 
 - the comment didn't encode so it work on it 
+# HREF attribute double-quotes HTML-encoded.  
+- try in all `<script>alert(50)</script>` input 
+- nothing is done but i can write a js code in a tag using :` javascript:alert(50)` this will work
+# Stealing cookies (exploiting).  
+- 
