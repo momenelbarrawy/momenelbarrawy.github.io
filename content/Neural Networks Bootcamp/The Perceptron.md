@@ -1,5 +1,5 @@
 ---
-title: The Essence of Neural Networks
+title: The Perceptron
 tags:
   - NeuralNetwork
 draft: true

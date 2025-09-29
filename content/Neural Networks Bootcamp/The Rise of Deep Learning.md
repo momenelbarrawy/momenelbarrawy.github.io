@@ -1,5 +1,5 @@
 ---
-title: The Essence of Neural Networks
+title: The Rise of Deep Learning
 tags:
   - NeuralNetwork
 draft: true

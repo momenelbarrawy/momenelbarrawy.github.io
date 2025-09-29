@@ -1,5 +1,5 @@
 ---
-title: The Essence of Neural Networks
+title: What Can Deep Learning Do?
 tags:
   - NeuralNetwork
 draft: true
