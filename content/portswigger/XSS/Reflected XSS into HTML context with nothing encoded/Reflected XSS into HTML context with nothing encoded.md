@@ -8,12 +8,11 @@ tags:
 ---
 
 # Table of Contents
-1. [Steps](#steps)
-   1. [Search for input](#search-for-input)
-   2. [Test input](#test-input)
-   3. [Show source code](#show-source-code)
-   4. [Try to inject JS](#try-to-inject-js)
-   5. [Done](#done)
+  1. [Search for input](#search-for-input)
+  2. [Test input](#test-input)
+  3. [Show source code](#show-source-code)
+  4. [Try to inject JS](#try-to-inject-js)
+  5. [Done](#done)
 
 ## Search for input
 ![Input field screenshot](/portswigger/XSS/Reflected%20XSS%20into%20HTML%20context%20with%20nothing%20encoded/images/input.png)
