@@ -45,7 +45,7 @@ The input is also reflected inside an js variable. We will try to close the vari
 The single quate is handled 
 ![a](/portswigger/XSS/Reflected%20XSS%20into%20a%20JavaScript%20string%20with%20angle%20brackets%20HTML%20encoded/images/test-js-variable-source.png)
 
-In the script tag the tag close was readed so we will try to close the script tag and open anther one :
+In the script tag test the tag close was readed, so we will try to close the script tag and open a new one :
 ```html
 </script><script>alert(50)</script>
 ```
