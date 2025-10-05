@@ -34,7 +34,8 @@ The input is reflected inside an HTML tag, so we will try to open a `<script>` t
 
 ![a](/portswigger/XSS/Reflected%20XSS%20into%20attribute%20with%20angle%20brackets%20HTML-encoded/images/test-open-tag-source.png)
 
-Also the input reflected iside HTML attribute, so we will try to close the open attribute and write new one 
+The input is also reflected inside an HTML attribute. We will try to close the attribute and add a new event handler attribute:
+
 ```html
 " onmouseover="alert(50)"
 ```
