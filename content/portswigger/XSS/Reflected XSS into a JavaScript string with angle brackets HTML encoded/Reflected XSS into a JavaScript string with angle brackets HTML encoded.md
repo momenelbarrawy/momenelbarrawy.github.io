@@ -34,13 +34,13 @@ The input is reflected inside an HTML tag, so we will try to open a `<script>` t
 
 ![a](/portswigger/XSS/Reflected%20XSS%20into%20a%20JavaScript%20string%20with%20angle%20brackets%20HTML%20encoded/images/test-open-tag-source.png)
 
-The input is also reflected inside an HTML attribute. We will try to close the attribute and add a new event handler attribute:
+The input is also reflected inside an js variable. We will try to close the variable and add a new js code :
 
-```html
-" onmouseover="alert(50)"
+```js
+';alert(50);//
 ```
 
-![a](/portswigger/XSS/Reflected%20XSS%20into%20a%20JavaScript%20string%20with%20angle%20brackets%20HTML%20encoded/images/test-attribute.png)
+![a](/portswigger/XSS/Reflected%20XSS%20into%20a%20JavaScript%20string%20with%20angle%20brackets%20HTML%20encoded/images/test-js-variable.png)
 
 ## Done
 ![a](/portswigger/XSS/Reflected%20XSS%20into%20a%20JavaScript%20string%20with%20angle%20brackets%20HTML%20encoded/images/done.png)
