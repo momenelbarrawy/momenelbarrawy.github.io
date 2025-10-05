@@ -43,13 +43,13 @@ The input is also reflected inside an js variable. We will try to close the vari
 ![a](/portswigger/XSS/Reflected%20XSS%20into%20a%20JavaScript%20string%20with%20angle%20brackets%20HTML%20encoded/images/test-js-variable.png)
 
 The single quate is handled 
-![a](/portswigger/XSS/Reflected%20XSS%20into%20a%20JavaScript%20string%20with%20angle%20brackets%20HTML%20encoded/images/test-js-variable-source.png)
+![a](/portswigger/XSS/Reflected%20XSS%20into%20a%20JavaScript%20string%20with%20single%20quote%20and%20backslash%20escaped/images/test-js-variable-source.png)
 
 In the script tag test the tag close was readed, so we will try to close the script tag and open a new one :
 ```html
 </script><script>alert(50)</script>
 ```
-![a](/portswigger/XSS/Reflected%20XSS%20into%20a%20JavaScript%20string%20with%20angle%20brackets%20HTML%20encoded/images/test-close-script-tag.png)
+![a](/portswigger/XSS/Reflected%20XSS%20into%20a%20JavaScript%20string%20with%20single%20quote%20and%20backslash%20escaped/images/test-close-script-tag.png)
 
 ## Done
 ![a](/portswigger/XSS/Reflected%20XSS%20into%20a%20JavaScript%20string%20with%20angle%20brackets%20HTML%20encoded/images/done.png)
