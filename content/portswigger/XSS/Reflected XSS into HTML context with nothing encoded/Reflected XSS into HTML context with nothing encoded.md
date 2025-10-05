@@ -15,9 +15,6 @@ tags:
    4. [Try to inject JS](#try-to-inject-js)
    5. [Done](#done)
 
-# Steps
-1. [Search for input](#search-for-input)
-
 ## Search for input
 ![Input field screenshot](/portswigger/XSS/Reflected%20XSS%20into%20HTML%20context%20with%20nothing%20encoded/images/input.png)
 
