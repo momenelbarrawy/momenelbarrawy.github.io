@@ -1,6 +1,6 @@
 ---
 title: Reflected XSS into a JavaScript string with single quote and backslash escaped
-draft: false
+draft: true
 tags:
   - PortSwigger
   - WebSecurity

@@ -1,6 +1,6 @@
 ---
 title: Information Disclosure
-draft: false
+draft: true
 tags:
   - PortSwigger
   - WebSecurity

@@ -1,6 +1,6 @@
 ---
 title: Reflected XSS into attribute with angle brackets HTML-encoded
-draft: false
+draft: true
 tags:
   - PortSwigger
   - WebSecurity

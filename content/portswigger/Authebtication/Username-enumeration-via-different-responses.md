@@ -1,6 +1,6 @@
 ---
 title: Username Enumeration via Different Responses
-draft: false
+draft: true
 tags:
   - PortSwigger
   - Authentication

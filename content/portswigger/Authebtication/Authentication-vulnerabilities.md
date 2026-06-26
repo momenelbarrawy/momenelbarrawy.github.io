@@ -1,6 +1,6 @@
 ---
 title: Authentication vulnerabilities
-draft: false
+draft: true
 tags:
   - Authentication
   - PortSwigger

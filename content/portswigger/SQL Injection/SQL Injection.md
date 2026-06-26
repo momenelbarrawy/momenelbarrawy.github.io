@@ -1,6 +1,6 @@
 ---
 title: SQL Injection
-draft: false
+draft: true
 tags:
   - PortSwigger
   - Web

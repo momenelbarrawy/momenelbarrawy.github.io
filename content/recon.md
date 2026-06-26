@@ -1,3 +1,7 @@
+---
+draft: true
+---
+
 # Reconnaissance Resources
 
 | Resource Name           | URL                                                | Description                       |

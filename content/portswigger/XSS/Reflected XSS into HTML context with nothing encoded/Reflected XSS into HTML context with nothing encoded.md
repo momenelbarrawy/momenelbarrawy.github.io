@@ -1,6 +1,6 @@
 ---
 title: Reflected XSS into HTML context with nothing encoded
-draft: false
+draft: true
 tags:
   - PortSwigger
   - WebSecurity
