@@ -75,19 +75,6 @@ SMTP **does not retrieve emails**.
   
 ---  
   
-### SMTP Security  
-  
-SMTP originally sends data in plain text.  
-  
-Secure methods include:  
-  
-- SSL/TLS  
-- STARTTLS  
-- SMTP Authentication (Username & Password)  
-  
-  
----  
-  
 ## POP3 (Post Office Protocol v3)  
   
 ### Default Ports  
@@ -174,3 +161,25 @@ Common email clients include:
 ## FTP allows users to:  
 - Upload files to a server  
 - Download files from a server
+---
+
+# Telnet  
+
+Purpose : Remote Login (CLI)  
+Port : 23/TCP  
+Security:  Plain Text  
+
+---
+# SSH  
+  
+Purpose : Secure Remote Login (CLI)  
+Port : 22/TCP  
+Security:  Encrypted  
+
+---
+# RDP    
+Purpose : Remote Desktop (GUI)  
+Port : 3389/TCP  
+Security: Encrypted
+
+---
