@@ -37,9 +37,9 @@ draft:
   
 ---  
   
-# SMTP (Simple Mail Transfer Protocol)  
+## SMTP (Simple Mail Transfer Protocol)  
   
-## Default Port  
+### Default Port  
   
 - **25/TCP** → Mail Server to Mail Server communication  
 - **587/TCP** → Mail Client Submission (Recommended)  
@@ -49,7 +49,7 @@ draft:
   
 ---  
   
-## Purpose  
+### Purpose  
   
 SMTP is responsible for:  
   
@@ -61,7 +61,7 @@ SMTP **does not retrieve emails**.
   
 ---  
   
-## SMTP Commands  
+### SMTP Commands  
   
 | Command   | Description                                   |
 | --------- | --------------------------------------------- |
@@ -75,7 +75,7 @@ SMTP **does not retrieve emails**.
   
 ---  
   
-## SMTP Security  
+### SMTP Security  
   
 SMTP originally sends data in plain text.  
   
@@ -88,14 +88,14 @@ Secure methods include:
   
 ---  
   
-# POP3 (Post Office Protocol v3)  
+## POP3 (Post Office Protocol v3)  
   
-## Default Ports  
+### Default Ports  
   
 - **110/TCP** → POP3  
 - **995/TCP** → POP3 over SSL/TLS  
   
-## Purpose  
+### Purpose  
   
 POP3 downloads emails from the mail server to the local computer.  
   
@@ -108,14 +108,14 @@ Best for:
   
 ---  
   
-# IMAP (Internet Message Access Protocol)  
+## IMAP (Internet Message Access Protocol)  
   
-## Default Ports  
+### Default Ports  
   
 - **143/TCP** → IMAP  
 - **993/TCP** → IMAPS (SSL/TLS)  
   
-## Purpose  
+### Purpose  
   
 IMAP synchronizes emails between the mail server and multiple devices.  
   
@@ -130,7 +130,7 @@ Best for:
   
 ---  
   
-# SMTP vs POP3 vs IMAP  
+## SMTP vs POP3 vs IMAP  
   
 | Feature | SMTP | POP3 | IMAP |  
 |---------|------|------|------|  
@@ -142,7 +142,7 @@ Best for:
   
 ---  
   
-# Common Mail Server Applications  
+## Common Mail Server Applications  
   
 - Microsoft Exchange Server  
 - Lotus Domino (IBM/HCL Domino)  
@@ -150,7 +150,7 @@ Best for:
 - Sendmail  
   
 --- 
-# Mail Client Applications  
+## Mail Client Applications  
   
 Common email clients include:  
   
