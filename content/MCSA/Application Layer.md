@@ -144,65 +144,12 @@ Best for:
   
 # Common Mail Server Applications  
   
-## Microsoft Exchange Server  
+- Microsoft Exchange Server  
+- Lotus Domino (IBM/HCL Domino)  
+- Postfix  
+- Sendmail  
   
-- Enterprise mail server from Microsoft.  
-- Integrates with Active Directory.  
-- Supports:  
-- SMTP  
-- POP3  
-- IMAP  
-- Outlook  
-- Webmail (OWA)  
-- Common in Windows Server environments.  
-  
----  
-  
-## Lotus Domino (IBM/HCL Domino)  
-  
-- Enterprise email and collaboration server.  
-- Includes:  
-- Email  
-- Calendars  
-- Contacts  
-- Applications  
-- Uses the Notes client.  
-  
----  
-  
-## Postfix  
-  
-- Open-source mail transfer agent (MTA).  
-- Runs mainly on Linux/Unix.  
-- Fast and secure.  
-- Often replaces Sendmail.  
-  
----  
-  
-## Sendmail  
-  
-- One of the oldest Unix mail servers.  
-- Highly configurable.  
-- Less common today than Postfix.  
-  
----  
-  
-## Exim  
-  
-- Popular Linux mail server.  
-- Common on web hosting servers.  
-- Flexible configuration.  
-  
----  
-  
-## Qmail  
-  
-- Lightweight mail server.  
-- Security-focused.  
-- Less common today.  
-  
----  
-  
+--- 
 # Mail Client Applications  
   
 Common email clients include:  
@@ -216,4 +163,14 @@ Common email clients include:
 
 ---
 
-  
+# FTP (File Transfer Protocol)
+  > Used to transfer files between client and server over a network
+
+  ---
+## Default Ports 
+  - **21/TCP** → Control connection (commands)
+  - **20/TCP** → Data connection
+---
+## FTP allows users to:  
+- Upload files to a server  
+- Download files from a server
