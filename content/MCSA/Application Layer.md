@@ -183,3 +183,236 @@ Port : 3389/TCP
 Security: Encrypted
 
 ---
+
+# DHCP (Dynamic Host Configuration Protocol)
+
+> Automatically assigns IP configuration to devices on a network.
+
+---
+
+## Default Ports
+
+- **67/UDP** → DHCP Server
+- **68/UDP** → DHCP Client
+
+---
+
+## Purpose
+
+DHCP automatically provides:
+
+- IP Address
+- Subnet Mask
+- Default Gateway
+- DNS Server
+- Lease Time
+
+Without DHCP, these settings must be configured manually.
+
+---
+
+## DHCP Process (DORA)
+
+```mermaid
+sequenceDiagram
+    participant Client
+    participant DHCP_Server
+
+    Client->>DHCP_Server: Discover
+    DHCP_Server-->>Client: Offer
+    Client->>DHCP_Server: Request
+    DHCP_Server-->>Client: ACK
+```
+
+
+1. **Discover** → Client broadcasts for a DHCP server.
+2. **Offer** → Server offers an IP address.
+3. **Request** → Client requests the offered IP.
+4. **Acknowledge (ACK)** → Server confirms the lease.
+
+
+---
+
+# DNS (Domain Name System)
+
+> Translates domain names into IP addresses.
+
+```mermaid
+flowchart LR
+    User["User (google.com)"]
+    DNS["DNS Server"]
+    Web["Web Server<br>142.x.x.x"]
+
+    User -->|DNS Query| DNS
+    DNS -->|Returns IP Address| User
+    User -->|HTTP/HTTPS Request| Web
+```
+
+
+
+---
+
+## Default Ports
+
+- **53/UDP** → Name queries
+- **53/TCP** → Zone transfers & large responses
+
+---
+
+## Purpose
+
+Instead of remembering:
+
+```
+142.250.190.78
+```
+
+Users type:
+
+```
+google.com
+```
+
+DNS resolves the name into an IP address.
+
+
+---
+
+# P2P (Peer-to-Peer)
+
+> A network model where each computer can act as both a client and a server.
+
+
+---
+
+## Characteristics
+
+- No dedicated server
+- Easy to set up
+- Low cost
+- Suitable for small networks
+
+
+---
+
+# SMB (Server Message Block)
+
+> Used to share files, folders, and printers on Windows networks.
+
+---
+
+## Default Port
+
+- **445/TCP**
+
+*(Older SMB versions also used NetBIOS ports 137–139.)*
+
+---
+
+## Purpose
+
+Allows users to:
+
+- Share files
+- Share folders
+- Share printers
+- Access network drives
+
+---
+
+## Features
+
+- File sharing
+- Printer sharing
+- Authentication
+- Active Directory integration
+- Windows-native protocol
+
+---
+
+# NFS (Network File System)
+
+> Used to share files and directories between Linux/Unix systems.
+
+---
+
+## Default Port
+
+- **2049/TCP**
+
+---
+
+## Purpose
+
+Allows clients to access remote files as if they were stored locally.
+
+---
+
+## Features
+
+- File sharing
+- Directory sharing
+- Centralized storage
+- Common in Linux/Unix environments
+
+---
+
+# Cheat Sheet  
+  
+## Port Ranges  
+  
+| Range | Name | Purpose |  
+|-------:|------|---------|  
+| 0–1023 | Well-Known | Standard services |  
+| 1024–49151 | Registered | Vendor applications |  
+| 49152–65535 | Dynamic/Private | Temporary client ports |  
+  
+---  
+  
+## Common Protocols  
+  
+| Protocol | Port | Transport | Purpose |  
+|----------|-----:|-----------|---------|  
+| HTTP | 80 | TCP | Web Browsing |  
+| HTTPS | 443 | TCP | Secure Web Browsing |  
+| FTP | 20/21 | TCP | File Transfer |  
+| SMTP | 25 | TCP | Send Email |  
+| SMTP Submission | 587 | TCP | Mail Client Submission |  
+| SMTPS | 465 | TCP | Secure SMTP |  
+| POP3 | 110 | TCP | Download Email |  
+| POP3S | 995 | TCP | Secure POP3 |  
+| IMAP | 143 | TCP | Synchronize Email |  
+| IMAPS | 993 | TCP | Secure IMAP |  
+| Telnet | 23 | TCP | Remote CLI |  
+| SSH | 22 | TCP | Secure Remote CLI |  
+| RDP | 3389 | TCP | Remote Desktop |  
+| DNS | 53 | TCP/UDP | Name Resolution |  
+| DHCP Server | 67 | UDP | Assign IP Addresses |  
+| DHCP Client | 68 | UDP | Receive IP Configuration |  
+| SMB | 445 | TCP | Windows File Sharing |  
+| NFS | 2049 | TCP | Linux File Sharing |  
+  
+---  
+  
+## Remember  
+  
+ **Email**  
+- SMTP → Send  
+- POP3 → Pull (Download)  
+- IMAP → Sync  
+  
+ **File Sharing**  
+- FTP → File Transfer  
+- SMB → Windows Sharing  
+- NFS → Linux Sharing  
+  
+ **Remote Access**  
+- Telnet → CLI (Not Secure)  
+- SSH → CLI (Encrypted)  
+- RDP → GUI (Windows)  
+  
+ **Network Services**  
+- DNS → Name → IP  
+- DHCP → Automatic IP Configuration
+
+
