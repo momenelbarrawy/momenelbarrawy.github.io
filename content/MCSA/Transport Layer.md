@@ -4,6 +4,8 @@ tags:
   - OSI
   - TCP
   - UDP
+  - MCSA
+  - NETWORK
 draft:
 ---
 # TCP (Transmission Control Protocol)

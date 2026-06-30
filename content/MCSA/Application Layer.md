@@ -1,7 +1,7 @@
 ---
 title: Application Layer
 tags:
-  - OCSA
+  - MCSA
   - OSI
 draft:
 ---

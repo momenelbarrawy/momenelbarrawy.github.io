@@ -1,6 +1,10 @@
 ---
 title: IPv4
-draft:
+draft: false
+tags:
+  - NETWORK
+  - MCSA
+  - OSI
 ---
 # IPv4 Address Classes
 
