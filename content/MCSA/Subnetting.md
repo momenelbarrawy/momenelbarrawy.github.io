@@ -3,6 +3,7 @@ title: Subnetting
 tags:
   - NETWORK
   - MCSA
+  - CCNA
 draft:
 ---
 

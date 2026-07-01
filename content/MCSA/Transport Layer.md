@@ -6,6 +6,7 @@ tags:
   - UDP
   - MCSA
   - NETWORK
+  - CCNA
 draft:
 ---
 # TCP (Transmission Control Protocol)

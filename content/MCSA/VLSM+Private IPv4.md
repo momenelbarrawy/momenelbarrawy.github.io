@@ -1,3 +1,11 @@
+---
+title: VLSM+Private IPv4
+tags:
+  - CCNA
+  - MCSA
+  - NETWORK
+---
+
 # VLSM (Variable Length Subnet Mask)
 
 > **VLSM** allows you to use **different subnet masks (prefix lengths)** within the same network, creating subnets of different sizes based on the number of hosts required.

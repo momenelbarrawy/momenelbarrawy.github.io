@@ -5,6 +5,7 @@ tags:
   - NETWORK
   - MCSA
   - OSI
+  - CCNA
 ---
 # IPv4 (Internet Protocol Version 4)
 

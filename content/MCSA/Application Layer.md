@@ -3,6 +3,7 @@ title: Application Layer
 tags:
   - MCSA
   - OSI
+  - CCNA
 draft:
 ---
 # Port number (2^16)
