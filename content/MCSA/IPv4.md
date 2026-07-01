@@ -6,181 +6,389 @@ tags:
   - MCSA
   - OSI
 ---
-# IPv4 Address Classes
+# IPv4 (Internet Protocol Version 4)
 
-IPv4 addresses are **32 bits** long and are divided into **5 classes (A–E)**.
+> IPv4 is a **Layer 3 (Network Layer)** protocol responsible for **logical addressing** and **routing packets** between different networks.
+
+---
+
+# IPv4 Characteristics
+
+| Feature           | Description                            |
+| ----------------- | -------------------------------------- |
+| Layer             | Network Layer (Layer 3)                |
+| Address Length    | 32 Bits                                |
+| Address Format    | Four 8-bit octets                      |
+| Header Size       | 20 Bytes (Minimum), 60 Bytes (Maximum) |
+| Maximum Addresses | 2³² ≈ 4.29 Billion                     |
+
+Example
+
+```
+192.168.1.10
+```
+
+Binary
+
+```
+11000000.10101000.00000001.00001010
+```
+
+---
+
+# IPv4 Packet Structure
+
+An IPv4 packet consists of two parts:
 
 ```mermaid
 flowchart LR
-A["Class A<br>1-126<br>/8"]
-B["Class B<br>128-191<br>/16"]
-C["Class C<br>192-223<br>/24"]
-D["Class D<br>224-239<br>Multicast"]
-E["Class E<br>240-255<br>Experimental"]
 
-A --> B --> C --> D --> E
+A["IPv4 Packet"]
+
+A --> B["Header<br>20 - 60 Bytes"]
+
+A --> C["Payload (Data)"]
 ```
 
+- **Header** contains routing and control information.
+- **Payload** contains the transported data (TCP, UDP, ICMP, etc.).
 
 ---
 
-## Class A (0)
+# IPv4 Header
 
-**First Bit:** `0`
 
-**Range:**
-```
-1.0.0.0 → 126.255.255.255
-```
-
-**Default Subnet Mask**
-```
-255.0.0.0
-```
-
-**Prefix**
-```
-/8
-```
-
-**Network / Host**
-```
-N.H.H.H
-```
-
-- Very large networks
-- Up to **126 Networks**
-- **16,777,214 Hosts per Network**
+![[IPv4-Header-1.webp]]
 
 ---
 
-## Class B (10)
+# IPv4 Header Fields
 
-**First Bits:** `10`
+## Version
 
-**Range:**
-```
-128.0.0.0 → 191.255.255.255
-```
+Specifies the IP version.
 
-**Default Subnet Mask**
 ```
-255.255.0.0
+IPv4 = 4
+IPv6 = 6
 ```
-
-**Prefix**
-```
-/16
-```
-
-**Network / Host**
-```
-N.N.H.H
-```
-
-- Medium-sized networks
-- **16,384 Networks**
-- **65,534 Hosts per Network**
 
 ---
 
-## Class C (110)
+## IHL (Internet Header Length)
 
-**First Bits:** `110`
+Indicates the size of the IPv4 header.
 
-**Range:**
-```
-192.0.0.0 → 223.255.255.255
-```
-
-**Default Subnet Mask**
-```
-255.255.255.0
-```
-
-**Prefix**
-```
-/24
-```
-
-**Network / Host**
-```
-N.N.N.H
-```
-
-- Small networks
-- **2,097,152 Networks**
-- **254 Hosts per Network**
+- Minimum: 20 Bytes
+- Maximum: 60 Bytes
 
 ---
 
-## Class D (1110)
+## DSCP (Differentiated Services Code Point)
 
-**First Bits:** `1110`
+Used for **Quality of Service (QoS)**.
 
-**Range:**
+Allows important traffic (Voice, Video) to receive higher priority.
+
+---
+
+## ECN (Explicit Congestion Notification)
+
+Indicates network congestion without dropping packets.
+
+Used together with TCP congestion control.
+
+---
+
+## Total Length
+
+Represents the total packet size.
+
+Includes:
+
+- Header
+- Payload
+
+Maximum size:
+
 ```
-224.0.0.0 → 239.255.255.255
+65,535 Bytes
 ```
 
-**Purpose**
-- Multicast
-- No subnet mask
-- Not assigned to hosts
+---
+
+## Identification
+
+A unique number assigned to a packet.
+
+Used when packet fragmentation occurs so the receiver can reassemble all fragments correctly.
+
+---
+
+## Flags
+
+Controls fragmentation.
+
+Three bits are available:
+
+| Flag | Meaning |
+|------|---------|
+| Reserved | Always 0 |
+| DF (Don't Fragment) | Prevents fragmentation |
+| MF (More Fragments) | Indicates more fragments follow |
+
+---
+
+## Fragment Offset
+
+Specifies the position of a fragment within the original packet.
+
+Used to correctly reassemble fragmented packets.
+
+---
+
+## TTL (Time To Live)
+
+Prevents packets from looping forever.
+
+Each router decreases TTL by **1**.
+
+When TTL reaches **0**, the router discards the packet.
+
+Example:
+
+```
+TTL = 64
+
+↓
+
+Router 1 = 63
+
+↓
+
+Router 2 = 62
+
+↓
+
+...
+
+↓
+
+TTL = 0
+
+Packet Dropped
+```
+
+---
+
+## Protocol
+
+Identifies the protocol encapsulated inside the IPv4 packet.
+
+| Protocol | Number |
+|----------|-------:|
+| ICMP | 1 |
+| TCP | 6 |
+| UDP | 17 |
+| OSPF | 89 |
+
+---
+
+## Header Checksum
+
+Detects errors in the IPv4 header.
+
+If incorrect:
+
+- Packet is discarded.
+
+Only checks the **Header**, not the Data.
+
+---
+
+## Source Address
+
+IPv4 address of the sender.
+
+Example
+
+```
+192.168.1.10
+```
+
+---
+
+## Destination Address
+
+IPv4 address of the receiver.
+
+Example
+
+```
+8.8.8.8
+```
+
+---
+
+## Options
+
+Optional information.
+
+Rarely used because it increases header size.
 
 Examples:
-- Video Streaming
-- IPTV
-- Routing Protocols
+
+- Timestamp
+- Security
+- Route Recording
 
 ---
 
-## Class E (1111)
+# IPv4 Address Assignment Methods
 
-**First Bits:** `1111`
-
-**Range:**
-```
-240.0.0.0 → 255.255.255.254
-```
-
-**Purpose**
-- Experimental
-- Research
-- Reserved
-
-Not used for normal hosts.
-
----
-# Quick Identification
-
-| First Octet | Class |
-|-------------|--------|
-| 1–126 | A |
-| 128–191 | B |
-| 192–223 | C |
-| 224–239 | D |
-| 240–255 | E |
-
-> **Note:**
-> - **127.x.x.x** = Loopback (Reserved)
-> - **0.x.x.x** = "This Network" (Reserved)
+There are three common methods for assigning an IPv4 address.
 
 ---
 
-# Memory Tricks
+## Static Addressing
+
+The administrator manually configures the network settings.
+
+Required information:
+
+- IP Address
+- Subnet Mask
+- Default Gateway
+- Preferred DNS Server
+- Alternate DNS Server (Optional)
+
+Example
 
 ```
-A = Any (Large Networks)
-/8
-
-B = Bigger Networks
-/16
-
-C = Common LAN
-/24
-
-D = Distribution (Multicast)
-
-E = Experimental
+IP Address      : 192.168.1.10
+Subnet Mask     : 255.255.255.0
+Default Gateway : 192.168.1.1
+DNS Server      : 8.8.8.8
 ```
+
+Advantages
+
+- Address never changes
+- Best for servers
+- Easy to locate devices
+- Supports services such as DNS, DHCP, and Web Servers
+
+Disadvantages
+
+- Time-consuming
+- Manual configuration
+- Human errors may cause duplicate IP addresses
+
+Common Uses
+
+- Servers
+- Printers
+- Routers
+- Switch Management Interfaces
+
+---
+
+## Dynamic Addressing (DHCP)
+
+A DHCP server automatically assigns network configuration.
+
+The client receives:
+
+- IP Address
+- Subnet Mask
+- Default Gateway
+- DNS Server
+- Lease Time
+
+Process (DORA)
+
+```mermaid
+sequenceDiagram
+Client->>DHCP Server: Discover
+DHCP Server-->>Client: Offer
+Client->>DHCP Server: Request
+DHCP Server-->>Client: ACK
+```
+
+Advantages
+
+- Automatic configuration
+- Prevents duplicate addresses
+- Easy administration
+- Suitable for large networks
+
+Disadvantages
+
+- Requires a DHCP Server
+- If DHCP is unavailable, clients cannot receive new addresses
+
+Common Uses
+
+- Home Networks
+- Offices
+- Schools
+- Enterprise Networks
+
+---
+
+## APIPA (Automatic Private IP Addressing)
+
+If a Windows computer cannot contact a DHCP server, it automatically assigns itself an IP address.
+
+Range
+
+```
+169.254.0.0/16
+```
+
+Example
+
+```
+169.254.25.100
+```
+
+Characteristics
+
+- Automatic
+- No DHCP required
+- Local communication only
+- No Internet access
+- Indicates DHCP failure
+
+---
+
+# Loopback Address
+
+```
+127.0.0.1
+```
+
+Purpose
+
+- Tests the TCP/IP stack.
+- Tests local network services.
+- Also called **localhost**.
+
+Example
+
+```
+ping 127.0.0.1
+```
+
+If successful, the TCP/IP stack is functioning correctly.
+
+---
+
+# Special IPv4 Addresses
+
+| Address | Purpose |
+|---------|---------|
+| 0.0.0.0 | This Network / Default Route |
+| 127.0.0.1 | Loopback |
+| 169.254.0.0/16 | APIPA |
+| 255.255.255.255 | Limited Broadcast |
