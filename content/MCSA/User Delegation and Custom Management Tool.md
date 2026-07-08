@@ -113,43 +113,11 @@ This allows administrators to specify:
 
 ---
 
-## Common Custom Permissions
-
-- Read
-- Write
-- Create Child Objects
-- Delete Child Objects
-- Reset Password
-- Modify Group Membership
-- Read Permissions
-- Write Permissions
-
----
-
-# Verify Delegation
-
-Log in using the delegated account and verify that:
-
-- Allowed tasks can be completed.
-- Unauthorized tasks are denied.
-
----
-
-# Custom Management Tool
-
-The **Active Directory Administrative Center (ADAC)** provides a modern interface for managing Active Directory objects.
-
-It can also be customized using **Taskpads** or **Microsoft Management Console (MMC)**.
-
----
-
 # Create a Custom MMC Console
 
 A custom MMC allows administrators to manage only the tools they need.
 
 ---
-
-## Step 1 — Open MMC
 
 Press:
 
@@ -163,91 +131,15 @@ Type:
 mmc
 ```
 
-![[../MCSA/delegation/open_mmc.png]]
-
----
-
-## Step 2 — Add Snap-ins
-
-Click:
+Open it as administrator:
 
 ```
-File
-    → Add/Remove Snap-in
+Ctrl + Shift + Enter
 ```
 
-![[../MCSA/delegation/add_snapin.png]]
 
----
+![[MCSA/delegation/Pasted image 20260708153416.png]]
 
-## Step 3 — Select Snap-ins
+![[MCSA/delegation/Pasted image 20260708153537.png]]
 
-Common snap-ins:
-
-- Active Directory Users and Computers
-- DNS
-- DHCP
-- Group Policy Management
-- Event Viewer
-- Computer Management
-
-Click:
-
-```
-Add
-```
-
-![[../MCSA/delegation/select_snapin.png]]
-
----
-
-## Step 4 — Save the Console
-
-Click:
-
-```
-File
-    → Save As
-```
-
-Example:
-
-```
-HelpDesk.msc
-```
-
-![[../MCSA/delegation/save_console.png]]
-
----
-
-# Benefits of Custom MMC
-
-- Easier administration
-- Faster access to management tools
-- Can be distributed to administrators
-- Reduces configuration mistakes
-- Simplifies daily management tasks
-
----
-
-# Cheat Sheet
-
-| Feature | Purpose |
-|---------|---------|
-| Delegate Control Wizard | Assign administrative permissions |
-| Organizational Unit (OU) | Scope of delegated permissions |
-| Principle of Least Privilege | Grant only required permissions |
-| Custom Task | Assign specific permissions |
-| MMC | Create custom management consoles |
-| Snap-in | Administrative tool added to MMC |
-
----
-
-# Remember
-
-- **Delegation** assigns specific administrative permissions without making users **Domain Admins**.
-- Delegation is usually performed on an **Organizational Unit (OU)**.
-- Use the **Delegate Control Wizard** for common administrative tasks.
-- Use **Custom Tasks** when more granular permissions are required.
-- **MMC** can be customized by adding snap-ins and saving the console as an **.msc** file.
-- Always follow the **Principle of Least Privilege**.
+![[MCSA/delegation/Pasted image 20260708153736.png]]
