@@ -13,6 +13,20 @@
 
 ![[MCSA/Sharing Permissions/Pasted image 20260717152907.png]]
 
+# Server manager
+
+![[MCSA/Sharing Permissions/Pasted image 20260717164950.png]]
+
+![[MCSA/Sharing Permissions/Pasted image 20260717165023.png]]
+
+![[MCSA/Sharing Permissions/Pasted image 20260717165124.png]]
+
+![[MCSA/Sharing Permissions/Pasted image 20260717165142.png]]
+
+![[MCSA/Sharing Permissions/Pasted image 20260717165159.png]]
+
+![[MCSA/Sharing Permissions/Pasted image 20260717165214.png]]
+
 # What are Share Permissions?
 
 Share Permissions control **who can access a shared folder over the network**.
