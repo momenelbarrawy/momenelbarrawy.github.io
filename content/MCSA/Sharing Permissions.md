@@ -27,6 +27,64 @@
 
 ![[MCSA/Sharing Permissions/Pasted image 20260717165214.png]]
 
+
+- Set Sessions
+![[MCSA/Sharing Permissions/Pasted image 20260718144811.png]]
+
+# Share folder for user 
+
+## on user computer 
+
+![[MCSA/Sharing Permissions/Pasted image 20260718150413.png]]
+
+![[MCSA/Sharing Permissions/Pasted image 20260718150438.png]]
+
+![[MCSA/Sharing Permissions/Pasted image 20260718150452.png]]
+
+
+## on dc
+
+![[MCSA/Sharing Permissions/Pasted image 20260718145048.png]]
+
+![[MCSA/Sharing Permissions/Pasted image 20260718145120.png]]
+
+![[MCSA/Sharing Permissions/Pasted image 20260718145205.png]]
+
+![[MCSA/Sharing Permissions/Pasted image 20260718145256.png]]
+
+> [!TIP] Compute name not user 
+
+![[MCSA/Sharing Permissions/Pasted image 20260718150547.png]]
+
+# Anther way
+
+
+![[MCSA/Sharing Permissions/Pasted image 20260718155814.png]]
+
+![[MCSA/Sharing Permissions/Pasted image 20260718155843.png]]
+
+![[MCSA/Sharing Permissions/Pasted image 20260718155918.png]]
+
+![[MCSA/Sharing Permissions/Pasted image 20260718155939.png]]
+
+![[MCSA/Sharing Permissions/Pasted image 20260718155958.png]]
+
+![[MCSA/Sharing Permissions/Pasted image 20260718160044.png]]
+
+![[MCSA/Sharing Permissions/Pasted image 20260718160103.png]]
+
+![[MCSA/Sharing Permissions/Pasted image 20260718160132.png]]
+
+![[MCSA/Sharing Permissions/Pasted image 20260718160146.png]]
+![[MCSA/Sharing Permissions/Pasted image 20260718160206.png]]
+
+## NFS share
+![[MCSA/Sharing Permissions/Pasted image 20260718160425.png]]
+
+![[MCSA/Sharing Permissions/Pasted image 20260718160631.png]]
+
+![[MCSA/Sharing Permissions/Pasted image 20260718160742.png]]
+
 # What are Share Permissions?
 
 Share Permissions control **who can access a shared folder over the network**.
