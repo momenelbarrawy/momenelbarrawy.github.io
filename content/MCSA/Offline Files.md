@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 ---
 
 # Offline Files (Offline Sharing)
@@ -97,85 +97,14 @@ Example:
 
 # Synchronize Offline Files
 
-Manual synchronization:
 
-1. Open **Sync Center**.
-2. Click **Sync**.
+![[MCSA/Offline Files/Pasted image 20260731142347.png]]
 
-Or right-click the shared folder and choose:
+![[MCSA/Offline Files/Pasted image 20260731142545.png]]
 
-```text
-Sync
-```
+![[MCSA/Offline Files/Pasted image 20260731142617.png]]
 
 ---
-
-# Sync Center
-
-Sync Center allows you to:
-
-- View synchronization status.
-- Resolve conflicts.
-- Start manual synchronization.
-- View synchronization partnerships.
-- Check synchronization history.
-
----
-
-# Offline Files Modes
-
-## Online Mode
-
-```text
-Client
-   │
-   ▼
-Server
-```
-
-- Files open directly from the server.
-- Fastest synchronization.
-- No cached copy is used unless needed.
-
----
-
-## Offline Mode
-
-```text
-Client
-   │
-Cached Files
-```
-
-Occurs when:
-
-- Server is unavailable.
-- Network cable disconnected.
-- Wi-Fi disconnected.
-- VPN disconnected.
-
-The user continues working with the local cached copy.
-
----
-
-# Synchronization
-
-When the connection returns:
-
-```text
-Client Changes
-        │
-        ▼
-Synchronization
-        │
-        ▼
-Server Updated
-```
-
-If both the client and another user modify the same file, Windows reports a **sync conflict**.
-
----
-
 # Synchronization Conflicts
 
 Example:
@@ -189,114 +118,11 @@ Client Cached Version
       ├── Edited by User B
 ```
 
-Sync Center prompts the user to:
+![[MCSA/Offline Files/Pasted image 20260731143405.png]]
 
-- Keep the server version.
-- Keep the local version.
-- Save both versions (if supported).
+![[MCSA/Offline Files/Pasted image 20260731143422.png]]
 
----
-
-# Disable Offline Availability
-
-To stop caching a share:
-
-1. Right-click the shared folder.
-2. Select:
-
-```text
-Always available offline
-```
-
-again to remove the offline setting.
-
-Or:
-
-- Open **Sync Center**.
-- Remove the synchronization partnership.
-
----
-
-# Disk Usage
-
-Offline Files consume local disk space.
-
-View or change cache settings:
-
-```
-Control Panel
-    ↓
-Sync Center
-    ↓
-Manage Offline Files
-    ↓
-Disk Usage
-```
-
-You can:
-
-- View cache usage.
-- Delete temporary offline files.
-- Change cache size (where supported).
-
----
-
-# Advantages
-
-- Access files without a network connection.
-- Improves availability for laptop users.
-- Automatic synchronization.
-- Transparent to most applications.
-- Reduces downtime during temporary network outages.
-
----
-
-# Limitations
-
-- Requires local disk space.
-- Large files increase synchronization time.
-- File conflicts can occur.
-- Not suitable for frequently changing shared databases.
-- Some applications do not support Offline Files correctly.
-
----
-
-# Offline Files vs Mapped Network Drive
-
-| Feature | Mapped Drive | Offline Files |
-|----------|--------------|---------------|
-| Requires Network | Yes | No (after initial sync) |
-| Local Copy | No | Yes |
-| Works Offline | No | Yes |
-| Automatic Sync | No | Yes |
-| Uses Drive Letter | Usually Yes | Uses the existing network path or mapped drive |
-
-> **Note:** Offline Files can be used with a mapped network drive or directly with a UNC path.
-
----
-
-# Practical Example
-
-Server:
-
-```text
-Computer Name : Server01
-Share Name    : Data
-UNC Path      : \\Server01\Data
-```
-
-Client:
-
-1. Map the share (optional):
-
-```cmd
-net use Z: \\Server01\Data
-```
-
-2. Right-click **Z:** (or `\\Server01\Data`).
-3. Select **Always available offline**.
-4. Disconnect the network.
-5. Open the files successfully from the local cache.
-6. Reconnect to the network.
-7. Sync Center uploads any changes to the server.
-
+![[MCSA/Offline Files/Pasted image 20260731143813.png]]
+![[MCSA/Offline Files/Pasted image 20260731143836.png]]
+![[MCSA/Offline Files/Pasted image 20260731143909.png]]
+![[MCSA/Offline Files/Pasted image 20260731143929.png]]
