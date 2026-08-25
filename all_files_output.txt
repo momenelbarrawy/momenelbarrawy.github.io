@@ -1,0 +1,12 @@
+1
+"index.html"
+"""
+[ERROR: [Errno 2] No such file or directory: 'index.html']
+"""
+
+2
+"css/base.css"
+"""
+[ERROR: [Errno 2] No such file or directory: 'css/base.css']
+"""
+
