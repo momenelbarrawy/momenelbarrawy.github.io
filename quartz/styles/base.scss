@@ -86,19 +86,24 @@ strong {
 a {
   font-weight: $semiBoldWeight;
   text-decoration: none;
-  transition: color 0.2s ease;
+  transition: color 0.15s ease;
   color: var(--secondary);
 
   &:hover {
-    color: var(--tertiary);
+    color: #ff0099;
+    text-decoration: underline;
   }
 
   &.internal {
     text-decoration: none;
-    background-color: var(--highlight);
-    padding: 0 0.1rem;
-    border-radius: 5px;
-    line-height: 1.4rem;
+    background-color: transparent;
+    padding: 0;
+    line-height: inherit;
+
+    &:hover {
+      color: #ff0099;
+      text-decoration: underline;
+    }
 
     &.broken {
       color: var(--secondary);
@@ -162,11 +167,42 @@ a {
 }
 
 .page {
-  max-width: calc(#{map.get($breakpoints, desktop)} + 300px);
+  max-width: 100%;
+  width: 100%;
   margin: 0 auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+
   & article {
+    font-size: 14px;
+    line-height: 1.6;
+    letter-spacing: 0.5px;
+
     & > h1 {
-      font-size: 2rem;
+      font-size: 1.5rem;
+      color: var(--dark, #ff4500);
+      font-weight: bolder;
+      margin-top: 1.2rem;
+      margin-bottom: 0.6rem;
+      letter-spacing: 1px;
+    }
+
+    & > h2 {
+      font-size: 1.25rem;
+      color: var(--dark, #ff4500);
+      font-weight: bolder;
+      margin-top: 1.2rem;
+      margin-bottom: 0.6rem;
+      letter-spacing: 0.5px;
+    }
+
+    & > h3 {
+      font-size: 1.1rem;
+      color: var(--dark, #ff4500);
+      font-weight: bold;
+      margin-top: 1rem;
+      margin-bottom: 0.4rem;
     }
 
     & li:has(> input[type="checkbox"]) {
@@ -186,7 +222,7 @@ a {
     }
 
     p > strong {
-      color: var(--dark);
+      color: var(--darkgray, #000000);
     }
   }
 
@@ -197,6 +233,9 @@ a {
     column-gap: #{map.get($desktopGrid, columnGap)};
     row-gap: #{map.get($desktopGrid, rowGap)};
     grid-template-areas: #{map.get($desktopGrid, templateAreas)};
+    width: 100%;
+    min-height: 100vh;
+    box-sizing: border-box;
 
     @media all and ($tablet) {
       grid-template-columns: #{map.get($tabletGrid, templateColumns)};
@@ -213,36 +252,63 @@ a {
       grid-template-areas: #{map.get($mobileGrid, templateAreas)};
     }
 
-    @media all and not ($desktop) {
-      padding: 0 1rem;
-    }
-    @media all and ($mobile) {
-      margin: 0 auto;
-    }
-
     & .sidebar {
-      gap: 2rem;
       top: 0;
       box-sizing: border-box;
-      padding: $topSpacing 2rem 2rem 2rem;
       display: flex;
       height: 100vh;
       position: sticky;
     }
 
     & .sidebar.left {
-      z-index: 1;
+      z-index: 50;
       grid-area: grid-sidebar-left;
       flex-direction: column;
+      width: 160px;
+      min-width: 160px;
+      max-width: 160px;
+      padding: 0;
+      gap: 0;
+      border-right: 1px solid #696969;
+      background-color: var(--light, #ffffff);
+      overflow: visible;
+
+      .page-title {
+        font-size: 13px;
+        font-weight: bold;
+        padding: 6px 10px;
+        margin: 0;
+        background-color: #333333;
+        color: #f0f8ff;
+        letter-spacing: 2px;
+        border-bottom: 1px solid #696969;
+        a {
+          color: #f0f8ff;
+          text-decoration: none;
+        }
+      }
+
+      .flex-component {
+        padding: 4px 6px;
+        border-bottom: 1px solid #696969;
+        gap: 6px;
+        align-items: center;
+        background-color: var(--light, #ffffff);
+      }
+
       @media all and ($mobile) {
         gap: 0;
-        align-items: center;
         position: initial;
         display: flex;
         height: unset;
-        flex-direction: row;
+        flex-direction: column;
+        width: 100%;
+        min-width: 100%;
+        max-width: 100%;
         padding: 0;
-        padding-top: 2rem;
+        border-right: none;
+        border-bottom: 1px solid #696969;
+        overflow: hidden;
       }
     }
 
@@ -250,16 +316,26 @@ a {
       grid-area: grid-sidebar-right;
       margin-right: 0;
       flex-direction: column;
+      padding: 10px 15px;
+      border-left: 1px solid #696969;
+      background-color: var(--light, #ffffff);
+      overflow-y: auto;
+      gap: 1rem;
+      width: 260px;
+      box-sizing: border-box;
+
       @media all and ($mobile) {
         margin-left: inherit;
         margin-right: inherit;
+        border-left: none;
+        border-top: 1px solid #696969;
       }
       @media all and not ($desktop) {
         position: initial;
         height: unset;
         width: 100%;
         flex-direction: row;
-        padding: 0;
+        padding: 10px;
         & > * {
           flex: 1;
           max-height: 24rem;
@@ -269,44 +345,64 @@ a {
         }
       }
     }
-    & .page-header,
+
+    & .page-header {
+      grid-area: grid-header;
+      margin: 0;
+      padding: 10px 25px 0 25px;
+      box-sizing: border-box;
+      @media all and ($mobile) {
+        padding: 10px 15px 0 15px;
+      }
+    }
+
+    & .center {
+      grid-area: grid-center;
+      padding: 5px 25px 20px 25px;
+      box-sizing: border-box;
+      min-width: 0;
+      max-width: 100%;
+      background-color: var(--light, #ffffff);
+      transition: padding 0.25s ease;
+
+      @media all and ($mobile) {
+        padding: 5px 15px 15px 15px;
+      }
+    }
+
     & .page-footer {
       margin-top: 1rem;
     }
 
-    & .page-header {
-      grid-area: grid-header;
-      margin: $topSpacing 0 0 0;
-      @media all and ($mobile) {
-        margin-top: 0;
-        padding: 0;
-      }
-    }
-
-    & .center > article {
-      grid-area: grid-center;
-    }
-
     & footer {
       grid-area: grid-footer;
-    }
+      width: 100%;
+      box-sizing: border-box;
+      border-top: 1px solid #696969;
+      background-color: #f5f5f5;
+      font-size: 11px;
+      padding: 4px 10px;
+      text-align: center;
+      z-index: 2;
 
-    & .center,
-    & footer {
-      max-width: 100%;
-      min-width: 100%;
-      margin-left: auto;
-      margin-right: auto;
-      @media all and ($tablet) {
-        margin-right: 0;
+      ul {
+        display: flex;
+        justify-content: center;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        gap: 15px;
+
+        li a {
+          color: var(--darkgray, #000000);
+          font-size: 11px;
+          text-decoration: none;
+          &:hover {
+            color: var(--secondary);
+            text-decoration: underline;
+          }
+        }
       }
-      @media all and ($mobile) {
-        margin-right: 0;
-        margin-left: 0;
-      }
-    }
-    & footer {
-      margin-left: 0;
     }
   }
 }
@@ -521,19 +617,37 @@ p {
 
 .table-container {
   overflow-x: auto;
+  margin: 10px 0;
 
   & > table {
-    margin: 1rem;
-    padding: 1.5rem;
+    width: 98%;
+    margin: 8px auto;
     border-collapse: collapse;
+    border: 1px solid #696969;
+    font-size: 13px;
 
-    th,
-    td {
-      min-width: 75px;
+    th {
+      background-color: var(--lightgray, #e6e6fa);
+      color: var(--darkgray, #000000);
+      font-weight: bold;
+      border: 1px solid #696969;
+      padding: 4px 8px;
+      line-height: 1.4;
     }
 
-    & > * {
-      line-height: 2rem;
+    td {
+      border: 1px solid #c0c0c0;
+      padding: 4px 8px;
+      line-height: 1.4;
+
+      a {
+        color: var(--secondary, #003399);
+        text-decoration: none;
+        &:hover {
+          color: #ff0099;
+          text-decoration: underline;
+        }
+      }
     }
   }
 }
