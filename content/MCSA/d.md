@@ -1,9 +1,3 @@
----
-tags:
-  - MCSA
-  - NETWORK
-  - DHCP
----
 # DHCP
 
 ## DHCP
