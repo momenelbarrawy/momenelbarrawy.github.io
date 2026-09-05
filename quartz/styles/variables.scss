@@ -2,10 +2,14 @@
 
 /**
  * Layout breakpoints
+ * $mobile: screen width below this value will use mobile styles
+ * $desktop: screen width above this value will use desktop styles
+ * Screen width between $mobile and $desktop width will use the tablet layout.
+ * assuming mobile < desktop
  */
 $breakpoints: (
   mobile: 800px,
-  desktop: 1100px,
+  desktop: 1200px,
 );
 
 $mobile: "(max-width: #{map.get($breakpoints, mobile)})";
@@ -13,18 +17,17 @@ $tablet: "(min-width: #{map.get($breakpoints, mobile)}) and (max-width: #{map.ge
 $desktop: "(min-width: #{map.get($breakpoints, desktop)})";
 
 $pageWidth: #{map.get($breakpoints, mobile)};
-$leftNavWidth: 160px;
-$sidePanelWidth: 260px;
-$topSpacing: 1rem;
+$sidePanelWidth: 320px; //380px;
+$topSpacing: 6rem;
 $boldWeight: 700;
 $semiBoldWeight: 600;
 $normalWeight: 400;
 
 $mobileGrid: (
   templateRows: "auto auto auto auto auto",
-  templateColumns: "1fr",
-  rowGap: "0px",
-  columnGap: "0px",
+  templateColumns: "auto",
+  rowGap: "5px",
+  columnGap: "5px",
   templateAreas:
     '"grid-sidebar-left"\
       "grid-header"\
@@ -34,9 +37,9 @@ $mobileGrid: (
 );
 $tabletGrid: (
   templateRows: "auto auto auto auto",
-  templateColumns: "auto 1fr",
-  rowGap: "0px",
-  columnGap: "0px",
+  templateColumns: "#{$sidePanelWidth} auto",
+  rowGap: "5px",
+  columnGap: "5px",
   templateAreas:
     '"grid-sidebar-left grid-header"\
       "grid-sidebar-left grid-center"\
@@ -45,12 +48,11 @@ $tabletGrid: (
 );
 $desktopGrid: (
   templateRows: "auto auto auto",
-  templateColumns: "auto 1fr minmax(200px, 260px)",
-  rowGap: "0px",
-  columnGap: "0px",
+  templateColumns: "#{$sidePanelWidth} auto #{$sidePanelWidth}",
+  rowGap: "5px",
+  columnGap: "5px",
   templateAreas:
     '"grid-sidebar-left grid-header grid-sidebar-right"\
       "grid-sidebar-left grid-center grid-sidebar-right"\
       "grid-sidebar-left grid-footer grid-sidebar-right"',
 );
-

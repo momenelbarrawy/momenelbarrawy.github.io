@@ -1,393 +1,282 @@
 @use "../../styles/variables.scss" as *;
 
-// ─── Main explorer wrapper ───────────────────────────────────────────────────
-.explorer.navi-explorer {
-  display: flex;
-  flex-direction: column;
-  font-family: var(--headerFont, 'Lucida Grande', 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif);
-  font-size: 11.5px;
-  position: relative;
-  user-select: none;
-  width: 160px;
-  // overflow must remain visible so popup floats outside
-  overflow: visible;
-  z-index: 50;
-
-  .explorer-os-header.os {
-    width: 160px;
-    color: var(--darkgray, #000000);
-    font-size: 12px;
-    text-align: center;
-    background-color: var(--lightgray, #e6e6fa);
-    border-bottom: 1px solid #696969;
-    height: 20px;
-    line-height: 20px;
-    font-weight: bold;
-    box-sizing: border-box;
-    letter-spacing: 0.5px;
-    flex-shrink: 0;
-  }
-
-  button.mobile-explorer {
-    display: none;
-    background-color: var(--lightgray, #e6e6fa);
-    border: 1px solid #696969;
-    padding: 4px 10px;
-    cursor: pointer;
-    align-items: center;
-    gap: 8px;
-    font-size: 12px;
-    font-weight: bold;
-    color: var(--darkgray, #000000);
-    margin-bottom: 4px;
-
-    .mobile-explorer-title {
-      line-height: 1;
-    }
-  }
-
-  // ─── Root navigation list ─────────────────────────────────────────────────
-  .navi-root-list {
-    padding: 0;
-    margin: 0;
-    list-style-type: none;
-    width: 160px;
-    position: relative;
-    z-index: 51;
-    background-color: var(--light, #ffffff) !important;
-  }
-
-  // ─── Root items ───────────────────────────────────────────────────────────
-  .navi-root-item {
-    position: relative;
-    border-bottom: #696969 1px dashed;
-    height: 19px;
-    line-height: 19px;
-    box-sizing: border-box;
-    width: 160px;
-    background-color: var(--light, #ffffff) !important;
-    color: var(--darkgray, #000000) !important;
-  }
-
-  // Root links
-  .navi-root-item > a.navi-link {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    text-decoration: none !important;
-    color: var(--darkgray, #000000) !important;
-    background: var(--light, #ffffff) !important;
-    width: 150px;
-    height: 19px;
-    line-height: 19px;
-    padding-left: 10px;
-    padding-right: 6px;
-    box-sizing: border-box;
-    font-size: 11.5px;
-    font-weight: normal !important;
-
-    .item-text {
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      flex: 1;
+@media all and ($mobile) {
+  .page > #quartz-body {
+    // Shift page position when toggling Explorer on mobile.
+    & > :not(.sidebar.left:has(.explorer)) {
+      transition: transform 300ms ease-in-out;
     }
 
-    .arrow-indicator {
-      width: 0;
-      height: 0;
-      border-top: 3.5px solid transparent;
-      border-bottom: 3.5px solid transparent;
-      border-left: 4.5px solid #696969;
-      margin-left: 4px;
-      flex-shrink: 0;
-    }
-  }
-
-  // Root item hover - highlight the root link
-  .navi-root-item:hover > a.navi-link {
-    background: #4682b4 !important;
-    color: #ffffff !important;
-    text-decoration: none !important;
-
-    .arrow-indicator {
-      border-left-color: #ffffff;
-    }
-  }
-
-  // Active parent (current page is inside this folder)
-  .navi-root-item.active-parent > a.navi-link {
-    background: #4682b4 !important;
-    color: #ffffff !important;
-    text-decoration: none !important;
-
-    .arrow-indicator {
-      border-left-color: #ffffff;
-    }
-  }
-
-  // Prevent Quartz's .active class (from internal link coloring) from
-  // applying the --dark (red/orange) variable to navigation links
-  a.navi-link,
-  a.navi-link:visited,
-  a.navi-link:hover,
-  a.navi-link.active {
-    color: inherit;
-    text-decoration: none !important;
-    background-color: transparent;
-    font-weight: normal;
-    padding: 0;
-  }
-  // Re-apply after the broad reset above
-  .navi-root-item > a.navi-link,
-  .navi-sub-item > a.navi-link {
-    color: var(--darkgray, #000000);
-    background: transparent;
-  }
-
-  // ─── Popup flyout panel ───────────────────────────────────────────────────
-  // Positioned absolutely, floating right of the 160px sidebar.
-  // Hidden by default, shown on :hover of parent li.
-  .navi-sub-popup {
-    visibility: hidden;
-    position: absolute;
-    top: 0;
-    left: 160px;        // flush with right edge of the 160px sidebar
-    min-width: 250px;
-    max-width: 480px;
-    max-height: calc(100vh - 10px);
-    overflow-y: auto;
-    overflow-x: hidden;
-    background-color: var(--light, #ffffff);
-    border: #696969 1px solid;
-    box-shadow: 4px 4px 14px rgba(0, 0, 0, 0.25);
-    z-index: 100;
-    // Use height 0 / overflow hidden trick to collapse when hidden (no layout shift)
-    height: 0;
-    pointer-events: none;
-  }
-
-  // When hovering the root item OR when the popup itself is hovered
-  .navi-root-item:hover > .navi-sub-popup,
-  .navi-sub-popup:hover {
-    visibility: visible;
-    height: auto;
-    pointer-events: auto;
-  }
-
-  // Keep popup open when mouse moves from root li onto the popup
-  // (CSS handles this naturally since popup is a child of li)
-
-  // Header row inside popup (section title, lavender background)
-  .navi-sub-popup > .subpanel-header.scolor {
-    background-color: var(--lightgray, #e6e6fa);
-    color: var(--darkgray, #000000);
-    font-size: 11.5px;
-    font-weight: bold;
-    height: 20px;
-    line-height: 20px;
-    padding-left: 10px;
-    border-bottom: 1px solid #696969;
-    box-sizing: border-box;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  // ─── Sub-items inside popup ───────────────────────────────────────────────
-  .navi-sub-list {
-    padding: 0;
-    margin: 0;
-    list-style-type: none;
-    width: 100%;
-  }
-
-  .navi-sub-item {
-    border-bottom: #696969 1px dashed;
-    height: 19px;
-    line-height: 19px;
-    box-sizing: border-box;
-    position: relative;
-  }
-
-  // Sub-folder item — can have its own nested popup
-  .navi-sub-item.navi-folder-item {
-    height: auto; // allow nested popup to be tall
-  }
-
-  // Links inside popup
-  .navi-sub-item > a.navi-link,
-  .navi-sub-item .navi-link {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    text-decoration: none;
-    color: var(--darkgray, #000000);
-    width: 100%;
-    height: 19px;
-    line-height: 19px;
-    background: transparent;
-    padding-left: 10px;
-    padding-right: 6px;
-    box-sizing: border-box;
-    font-size: 11.5px;
-
-    .item-text {
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      flex: 1;
+    &.lock-scroll > :not(.sidebar.left:has(.explorer)) {
+      transform: translateX(100dvw);
+      transition: transform 300ms ease-in-out;
     }
 
-    .arrow-indicator {
-      width: 0;
-      height: 0;
-      border-top: 3.5px solid transparent;
-      border-bottom: 3.5px solid transparent;
-      border-left: 4.5px solid #696969;
-      margin-left: 4px;
-      flex-shrink: 0;
+    // Sticky top bar (stays in place when scrolling down on mobile).
+    .sidebar.left:has(.explorer) {
+      box-sizing: border-box;
+      position: sticky;
+      background-color: var(--light);
+      padding: 1rem 0 1rem 0;
+      margin: 0;
     }
 
-    &:hover,
-    &.active {
-      background: #4682b4;
-      color: #ffffff;
-
-      .arrow-indicator {
-        border-left-color: #ffffff;
-      }
-    }
-  }
-
-  // ─── Nested (level-2) popup ───────────────────────────────────────────────
-  // A sub-folder inside the first popup that has its own flyout to the right
-  .navi-nested-popup {
-    visibility: hidden;
-    position: absolute;
-    top: 0;
-    left: 100%; // attach to the right of the sub-item
-    min-width: 220px;
-    max-width: 380px;
-    max-height: calc(100vh - 10px);
-    overflow-y: auto;
-    overflow-x: hidden;
-    background-color: var(--light, #ffffff);
-    border: #696969 1px solid;
-    border-left: #696969 1px dashed; // visual reference-site style
-    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
-    z-index: 101;
-    height: 0;
-    pointer-events: none;
-  }
-
-  .navi-sub-item:hover > .navi-nested-popup,
-  .navi-nested-popup:hover {
-    visibility: visible;
-    height: auto;
-    pointer-events: auto;
-  }
-
-  .navi-nested-popup > .subpanel-header.scolor {
-    background-color: var(--lightgray, #e6e6fa);
-    color: var(--darkgray, #000000);
-    font-size: 11.5px;
-    font-weight: bold;
-    height: 20px;
-    line-height: 20px;
-    padding-left: 10px;
-    border-bottom: 1px solid #696969;
-    box-sizing: border-box;
-    white-space: nowrap;
-  }
-
-  .navi-nested-list {
-    padding: 0;
-    margin: 0;
-    list-style-type: none;
-    width: 100%;
-  }
-
-  // ─── Dark mode overrides ──────────────────────────────────────────────────
-  :root[saved-theme="dark"] & {
-    .navi-root-list {
-      background-color: var(--dark, #0f0f0f);
-    }
-
-    .navi-root-item > a.navi-link {
-      color: var(--darkgray, #cccccc);
-    }
-
-    .navi-sub-popup,
-    .navi-nested-popup {
-      background-color: #1e1e1e;
-      border-color: #555555;
-      box-shadow: 4px 4px 14px rgba(0, 0, 0, 0.5);
-    }
-
-    .navi-sub-popup > .subpanel-header.scolor,
-    .navi-nested-popup > .subpanel-header.scolor {
-      background-color: #404040;
-      color: #e0e0e0;
-      border-bottom-color: #555555;
-    }
-
-    .navi-sub-item > a.navi-link,
-    .navi-sub-item .navi-link {
-      color: #cccccc;
+    .hide-until-loaded ~ .explorer-content {
+      display: none;
     }
   }
 }
 
-// ─── Mobile ───────────────────────────────────────────────────────────────────
-@media all and ($mobile) {
-  .explorer.navi-explorer {
-    width: 100%;
-    overflow: hidden;
+.explorer {
+  display: flex;
+  flex-direction: column;
+  overflow-y: hidden;
 
+  min-height: 1.2rem;
+  flex: 0 1 auto;
+
+  &.collapsed {
+    flex: 0 1 1.2rem;
+
+    & .fold {
+      transform: rotateZ(-90deg);
+    }
+  }
+
+  & .fold {
+    margin-left: 0.5rem;
+    transition: transform 0.3s ease;
+    opacity: 0.8;
+  }
+
+  @media all and ($mobile) {
+    order: -1;
+    height: initial;
+    overflow: hidden;
+    flex-shrink: 0;
+    align-self: flex-start;
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+
+  button.mobile-explorer {
+    display: none;
+  }
+
+  button.desktop-explorer {
+    display: flex;
+  }
+
+  @media all and ($mobile) {
     button.mobile-explorer {
       display: flex;
     }
 
-    .explorer-os-header {
+    button.desktop-explorer {
       display: none;
     }
+  }
 
-    .navi-root-list {
-      width: 100%;
+  &.desktop-only {
+    @media all and not ($mobile) {
+      display: flex;
+    }
+  }
+
+  svg {
+    pointer-events: all;
+    transition: transform 0.35s ease;
+
+    & > polyline {
+      pointer-events: none;
+    }
+  }
+}
+
+button.mobile-explorer,
+button.desktop-explorer {
+  background-color: transparent;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  padding: 0;
+  color: var(--dark);
+  display: flex;
+  align-items: center;
+
+  & h2 {
+    font-size: 1rem;
+    display: inline-block;
+    margin: 0;
+  }
+}
+
+.explorer-content {
+  list-style: none;
+  overflow: hidden;
+  overflow-y: auto;
+  margin-top: 0.5rem;
+
+  & ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    &.explorer-ul {
+      overscroll-behavior: contain;
     }
 
-    .navi-root-item {
-      width: 100%;
-    }
+    & li > a {
+      color: var(--dark);
+      opacity: 0.75;
+      pointer-events: all;
 
-    // On mobile, popup goes below (not to the right)
-    .navi-sub-popup {
-      position: static;
-      visibility: visible;
-      height: auto;
-      pointer-events: auto;
-      border: none;
-      border-top: 1px solid #696969;
-      box-shadow: none;
-      max-height: unset;
-    }
-
-    .navi-nested-popup {
-      position: static;
-      visibility: visible;
-      height: auto;
-      pointer-events: auto;
-      border: none;
-      border-top: 1px dashed #696969;
-      box-shadow: none;
-      max-height: unset;
-    }
-
-    &.collapsed {
-      .navi-root-list {
-        display: none;
+      &.active {
+        opacity: 1;
+        color: var(--tertiary);
       }
+    }
+  }
+
+  .folder-outer {
+    visibility: collapse;
+    display: grid;
+    grid-template-rows: 0fr;
+    transition-property: grid-template-rows, visibility;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-in-out;
+  }
+
+  .folder-outer.open {
+    visibility: visible;
+    grid-template-rows: 1fr;
+  }
+
+  .folder-outer > ul {
+    overflow: hidden;
+    margin-left: 6px;
+    padding-left: 0.8rem;
+    border-left: 1px solid var(--lightgray);
+  }
+}
+
+.folder-container {
+  flex-direction: row;
+  display: flex;
+  align-items: center;
+  user-select: none;
+
+  & div > a {
+    color: var(--secondary);
+    font-family: var(--headerFont);
+    font-size: 0.95rem;
+    font-weight: $semiBoldWeight;
+    line-height: 1.5rem;
+    display: inline-block;
+  }
+
+  & div > a:hover {
+    color: var(--tertiary);
+  }
+
+  & div > button {
+    color: var(--dark);
+    background-color: transparent;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+    padding-left: 0;
+    padding-right: 0;
+    display: flex;
+    align-items: center;
+    font-family: var(--headerFont);
+
+    & span {
+      font-size: 0.95rem;
+      display: inline-block;
+      color: var(--secondary);
+      font-weight: $semiBoldWeight;
+      margin: 0;
+      line-height: 1.5rem;
+      pointer-events: none;
+    }
+  }
+}
+
+.folder-icon {
+  margin-right: 5px;
+  color: var(--secondary);
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  backface-visibility: visible;
+  flex-shrink: 0;
+}
+
+li:has(> .folder-outer:not(.open)) > .folder-container > svg {
+  transform: rotate(-90deg);
+}
+
+.folder-icon:hover {
+  color: var(--tertiary);
+}
+
+.explorer {
+  @media all and ($mobile) {
+    &.collapsed {
+      flex: 0 0 34px;
+
+      & > .explorer-content {
+        transform: translateX(-100vw);
+        visibility: hidden;
+      }
+    }
+
+    &:not(.collapsed) {
+      flex: 0 0 34px;
+
+      & > .explorer-content {
+        transform: translateX(0);
+        visibility: visible;
+      }
+    }
+
+    .explorer-content {
+      box-sizing: border-box;
+      z-index: 100;
+      position: absolute;
+      top: 0;
+      left: 0;
+      margin-top: 0;
+      background-color: var(--light);
+      max-width: 100vw;
+      width: 100vw;
+      transform: translateX(-100vw);
+      transition:
+        transform 200ms ease,
+        visibility 200ms ease;
+      overflow: hidden;
+      padding: 4rem 0 2rem 0;
+      height: 100dvh;
+      max-height: 100dvh;
+      visibility: hidden;
+    }
+
+    .mobile-explorer {
+      margin: 0;
+      padding: 5px;
+      z-index: 101;
+
+      .lucide-menu {
+        stroke: var(--darkgray);
+      }
+    }
+  }
+}
+
+.mobile-no-scroll {
+  @media all and ($mobile) {
+    .explorer-content > .explorer-ul {
+      overscroll-behavior: contain;
     }
   }
 }
